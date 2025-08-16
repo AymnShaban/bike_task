@@ -1,5 +1,4 @@
 import 'package:bike_task/exports.dart';
-import '../core/widgets/flexible_bottom_nav_bar.dart';
 
 class TaskView extends StatefulWidget {
   const TaskView({super.key});
@@ -55,6 +54,7 @@ class _TaskViewState extends State<TaskView> {
                   SliverAppBar(
                     floating: true,
                     snap: true,
+                    actionsPadding: EdgeInsets.symmetric(horizontal: 20.0.w),
                     centerTitle: false,
                     backgroundColor: Colors.transparent,
                     elevation: 0,
@@ -81,14 +81,20 @@ class _TaskViewState extends State<TaskView> {
                   SliverToBoxAdapter(
                     child: 20.verticalSpace ,
                   ),
-                  const SliverToBoxAdapter(
-                    child: BikeCoverWidget(),
+                   SliverToBoxAdapter(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15.0.w),
+                      child: BikeCoverWidget(),
+                    ),
                   ),
                   SliverToBoxAdapter(
                     child: 20.verticalSpace ,
                   ),
-                  const SliverToBoxAdapter(
-                    child: CategoryRow(),
+                   SliverToBoxAdapter(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.0.w),
+                      child: CategoryRow(),
+                    ),
                   ),
                   SliverToBoxAdapter(
                     child: 20.verticalSpace ,

@@ -18,3 +18,5 @@ export 'package:bike_task/core/widgets/grid_products.dart';
 export 'package:bike_task/view/blocs/favorite_bloc/favorite_bloc.dart';
 export 'package:bike_task/core/clippers/tapered_bottom_clipper.dart';
 export 'package:bike_task/view/blocs/bottom_nav_bloc/bottom_nav_bloc.dart';
+export '../core/widgets/flexible_bottom_nav_bar.dart';
+
