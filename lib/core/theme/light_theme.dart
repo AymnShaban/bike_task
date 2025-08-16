@@ -11,6 +11,20 @@ class AppTheme {
   static const Color textColor = Colors.white;
   static const Color textSecondaryColor = Color(0xFFB3C6D5);
 
+  // Poppins Font Helper
+  static const String fontFamily = 'Poppins';
+  
+  // Font Weights
+  static const FontWeight thin = FontWeight.w100;
+  static const FontWeight extraLight = FontWeight.w200;
+  static const FontWeight lightWeight = FontWeight.w300;
+  static const FontWeight regular = FontWeight.w400;
+  static const FontWeight medium = FontWeight.w500;
+  static const FontWeight semiBold = FontWeight.w600;
+  static const FontWeight bold = FontWeight.w700;
+  static const FontWeight extraBold = FontWeight.w800;
+  static const FontWeight black = FontWeight.w900;
+
   // Gradient
   static const LinearGradient primaryGradient = LinearGradient(
     begin: Alignment.topLeft,
@@ -43,17 +57,20 @@ class AppTheme {
   static TextTheme get textTheme => const TextTheme(
         headlineLarge: TextStyle(
           fontSize: 28,
-          fontWeight: FontWeight.bold,
+          fontWeight: bold,
           color: textColor,
+          fontFamily: fontFamily,
         ),
         titleLarge: TextStyle(
           fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontWeight: semiBold,
           color: textColor,
+          fontFamily: fontFamily,
         ),
         bodyMedium: TextStyle(
           fontSize: 14,
           color: textSecondaryColor,
+          fontFamily: fontFamily,
         ),
       );
 
@@ -85,6 +102,7 @@ class AppTheme {
   // Overall ThemeData
   static ThemeData light(BuildContext context) => ThemeData(
         scaffoldBackgroundColor: backgroundColor,
+        fontFamily: 'Poppins', // Set Poppins as primary font
         colorScheme: const ColorScheme.light(
           primary: primaryColor,
           secondary: secondaryColor,

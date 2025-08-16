@@ -18,16 +18,25 @@ class _TaskViewState extends State<TaskView> {
     super.initState();
     _scrollController = ScrollController();
     _scrollController.addListener(_onScroll);
+    
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _navBarKey.currentState?.show();
+    });
   }
 
   void _onScroll() {
     final offset = _scrollController.offset;
-    if (offset > _lastOffset && _showNavBar) {
-      // scrolling down
-      _showNavBar = false;
-      _navBarKey.currentState?.hide();
-    } else if (offset < _lastOffset && !_showNavBar) {
-      // scrolling up
+    final maxScrollExtent = _scrollController.position.maxScrollExtent;
+    
+    // Add threshold to prevent flickering on iOS
+    const threshold = 50.0;
+    
+    if (offset > _lastOffset + threshold && _showNavBar) {
+      if (offset < maxScrollExtent - 100) {
+        _showNavBar = false;
+        _navBarKey.currentState?.hide();
+      }
+    } else if (offset < _lastOffset - threshold && !_showNavBar) {
       _showNavBar = true;
       _navBarKey.currentState?.show();
     }
@@ -50,11 +59,12 @@ class _TaskViewState extends State<TaskView> {
             DiagonalGradientBackground(
               child: CustomScrollView(
                 controller: _scrollController,
+                physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
                 slivers: [
                   SliverAppBar(
+                    
                     floating: true,
                     snap: true,
-                    actionsPadding: EdgeInsets.symmetric(horizontal: 20.0.w),
                     centerTitle: false,
                     backgroundColor: Colors.transparent,
                     elevation: 0,
@@ -68,14 +78,17 @@ class _TaskViewState extends State<TaskView> {
                       ),
                     ),
                     actions: [
-                     GradientButton(
-            size: 50.w,
-            onPressed: () {},
-            child: SvgPicture.asset(
-              "assets/svg/search.svg",
-              
-            ),
-          ),
+                     Padding(
+                       padding:  EdgeInsets.symmetric(horizontal: 15.0.w),
+                       child: GradientButton(
+                                   size: 50.w,
+                                   onPressed: () {},
+                                   child: SvgPicture.asset(
+                                     "assets/svg/search.svg",
+                                     
+                                   ),
+                                 ),
+                     ),
                     ],
                   ),
                   SliverToBoxAdapter(
