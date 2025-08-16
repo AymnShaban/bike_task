@@ -19,6 +19,18 @@ class AppTheme {
     stops: [0.0, 1.0],
   );
 
+  static final secondaryGradient = LinearGradient(
+  colors: [
+    Colors.grey.withValues(alpha: .1), // Light fade
+    Colors.grey.withValues(alpha: .3), // Medium fade
+    Colors.grey.withValues(alpha: .5), // Dark fade
+  ],
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  stops: [0.0, 0.5, 1.0],
+  transform: GradientRotation(-0.2),
+);
+
   // Reverse Gradient (optional)
   static const LinearGradient reverseGradient = LinearGradient(
     begin: Alignment.topLeft,

@@ -14,7 +14,12 @@ class TaskView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                BikeCoverWidget()
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: BikeCoverWidget(),
+                ),
+                20.verticalSpace,
+                CategoryRow()
              ],
             ),
           ),
@@ -33,7 +38,6 @@ class TaskView extends StatelessWidget {
           onPressed: () {},
           child: SvgPicture.asset(
             "assets/svg/search.svg",
-            
           ),
         ),
       ],

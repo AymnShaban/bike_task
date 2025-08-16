@@ -9,7 +9,7 @@ class BikeCoverWidget extends StatelessWidget {
       angle: -0.09,
       child: SizedBox(
         width: context.screenWidth,
-        height: context.screenHeight * 0.3,
+        height: context.screenHeight * 0.32,
         child: Stack(
           children: [
             // Gradient border
@@ -17,8 +17,8 @@ class BikeCoverWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Colors.grey, // Start at top right
-                    Theme.of(context).primaryColor, // End at bottom left
+                    Theme.of(context).primaryColor.withValues(alpha: 0.6), // End at bottom left
+                    Colors.grey.withValues(alpha: 0.9), // Start at top right
                   ],
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,

@@ -5,10 +5,11 @@ class GradientButton extends StatelessWidget {
   final VoidCallback onPressed;
   final double borderRadius;
   final double size; // Responsive size (e.g., 60.w or 15% of screen width)
-
+  final LinearGradient? gradient;
   const GradientButton({
     super.key,
     required this.child,
+    this.gradient,
     required this.onPressed,
     this.borderRadius = 12.0,
     this.size = 60, // Default size, make it responsive when used
@@ -27,7 +28,7 @@ class GradientButton extends StatelessWidget {
           height: size,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            gradient: AppTheme.primaryGradient,
+            gradient: gradient?? AppTheme.primaryGradient,
             borderRadius: BorderRadius.circular(borderRadius),
             // Optional: Add extra shadow if needed
             boxShadow: [

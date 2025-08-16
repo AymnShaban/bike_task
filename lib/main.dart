@@ -1,6 +1,10 @@
+
 import 'exports.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await ServiceLocator.init();
+  await ScreenUtil.ensureScreenSize();
   runApp(const MyApp());
 }
 
