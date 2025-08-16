@@ -203,8 +203,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Ali Mazen**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Ali Mazen](https://linkedin.com/in/yourprofile)
+- GitHub: [@yourusername](https://github.com/Ali-2001-Eg/)
+- LinkedIn: [Ali Mazen](https://www.linkedin.com/in/ali-mazen-83797b19a/)
 
 ## 🙏 Acknowledgments
 
