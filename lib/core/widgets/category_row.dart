@@ -66,9 +66,12 @@ class CategoryRow extends StatelessWidget {
                       size: 60.w,
                       child: Text(
                         'All',
+                    textScaler: TextScaler.linear(1),
+
                         style: context.textTheme.headlineSmall?.copyWith(
                           fontSize: 20.sp,
                           color: Colors.white,
+                          
                         ),
                       ),
                     );
