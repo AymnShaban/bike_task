@@ -1,4 +1,5 @@
 
+
 import '../../exports.dart';
 
 class AppTheme {
@@ -57,19 +58,21 @@ class AppTheme {
       );
 
   // App Bar Theme
-  static AppBarTheme get appBarTheme => const AppBarTheme(
+  static AppBarTheme appBarTheme(BuildContext context) =>  AppBarTheme(
         backgroundColor: backgroundColor,
         elevation: 0,
         centerTitle: true,
+        actionsPadding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 10.h),
+        toolbarHeight:context.screenHeight *0.09,
         titleTextStyle: TextStyle(
           color: textColor,
-          fontSize: 20,
+          fontSize: 20.sp,
           fontWeight: FontWeight.bold,
         ),
       );
 
   // Overall ThemeData
-  static ThemeData get light => ThemeData(
+  static ThemeData light(BuildContext context) => ThemeData(
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: const ColorScheme.light(
           primary: primaryColor,
@@ -78,7 +81,7 @@ class AppTheme {
           surface: surfaceColor,
         ),
         textTheme: textTheme,
-        appBarTheme: appBarTheme,
+        appBarTheme: appBarTheme(context),
         elevatedButtonTheme: elevatedButtonTheme,
         inputDecorationTheme: InputDecorationTheme(
           filled: true,

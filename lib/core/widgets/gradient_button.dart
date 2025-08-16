@@ -1,18 +1,17 @@
-
-
-
 import '../../exports.dart';
 
 class GradientButton extends StatelessWidget {
-  final String label;
+  final Widget child;
   final VoidCallback onPressed;
   final double borderRadius;
+  final double size; // Responsive size (e.g., 60.w or 15% of screen width)
 
   const GradientButton({
     super.key,
-    required this.label,
+    required this.child,
     required this.onPressed,
     this.borderRadius = 12.0,
+    this.size = 60, // Default size, make it responsive when used
   });
 
   @override
@@ -23,23 +22,26 @@ class GradientButton extends StatelessWidget {
       child: InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(borderRadius),
-        child: Ink(
-          width: double.infinity,
+        child: Container(
+          width: size,
+          height: size,
+          alignment: Alignment.center,
           decoration: BoxDecoration(
             gradient: AppTheme.primaryGradient,
             borderRadius: BorderRadius.circular(borderRadius),
-          ),
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            alignment: Alignment.center,
-            child: Text(
-              label,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            // Optional: Add extra shadow if needed
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: .2),
+                blurRadius: 8,
+                offset: Offset(0, 4),
               ),
-            ),
+            ],
+          ),
+          child: SizedBox(
+            width: (size - 20) * 0.6, // Adjust icon size to fit nicely (60% of button)
+            height: (size - 20) * 0.6,
+            child: child, // Typically an SVG icon
           ),
         ),
       ),

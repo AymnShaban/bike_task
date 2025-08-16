@@ -3,3 +3,8 @@ export 'package:bike_task/view/task_view.dart';
 export 'package:bike_task/core/theme/light_theme.dart';
 export 'package:bike_task/core/widgets/gradient_button.dart';
 export 'package:bike_task/core/clippers/home_clipper.dart';
+export 'package:flutter_screenutil/flutter_screenutil.dart';
+export 'package:flutter_svg/flutter_svg.dart';
+export 'package:bike_task/core/extensions/context_extension.dart';
+export 'package:bike_task/main.dart';
+export 'package:bike_task/core/widgets/bike_cover_widget.dart';

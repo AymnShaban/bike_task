@@ -6,37 +6,37 @@ class TaskView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Task View'),
-        // backgroundColor: AppTheme.primaryColor,
-      ),
+      appBar: _buildAppBar(),
       body: DiagonalGradientBackground(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.w),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  'Welcome to the Task View',
-                  style: TextStyle(
-                    color: AppTheme.textColor,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 20),
-                GradientButton(
-                  label: 'Start Task',
-                  onPressed: () {
-                    // Handle button press
-                  },
-                ),
-              ],
+                BikeCoverWidget()
+             ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  AppBar _buildAppBar() {
+    return AppBar(
+      title: Text('Choose Your Bike', style: TextStyle(fontSize: 20.sp)),
+      centerTitle: false,
+      actions: [
+        GradientButton(
+          size: 50.w,
+          onPressed: () {},
+          child: SvgPicture.asset(
+            "assets/svg/search.svg",
+            
+          ),
+        ),
+      ],
     );
   }
 }

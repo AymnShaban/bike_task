@@ -1,5 +1,3 @@
-
-
 import 'exports.dart';
 
 void main() {
@@ -9,15 +7,22 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Bike Task',
-      theme: AppTheme.light,
-      home: TaskView(),
+    return ScreenUtilInit(
+      designSize:  Size(MediaQuery.sizeOf(context).width, MediaQuery.sizeOf(context).height), 
+      minTextAdapt: true,
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        navigatorKey: navigatorKey,
+        scaffoldMessengerKey: scaffoldMessengerKey,
+        title: 'Bike Task',
+        theme: AppTheme.light(context),
+       
+        home: TaskView(),
+      ),
     );
   }
 }
-
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
