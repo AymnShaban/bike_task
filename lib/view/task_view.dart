@@ -55,6 +55,7 @@ class _TaskViewState extends State<TaskView> {
                   SliverAppBar(
                     floating: true,
                     snap: true,
+                    centerTitle: false,
                     backgroundColor: Colors.transparent,
                     elevation: 0,
                     toolbarHeight: context.screenHeight * .1,
@@ -67,21 +68,30 @@ class _TaskViewState extends State<TaskView> {
                       ),
                     ),
                     actions: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.search, color: Colors.white),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.menu, color: Colors.white),
-                      ),
+                     GradientButton(
+            size: 50.w,
+            onPressed: () {},
+            child: SvgPicture.asset(
+              "assets/svg/search.svg",
+              
+            ),
+          ),
                     ],
+                  ),
+                  SliverToBoxAdapter(
+                    child: 20.verticalSpace ,
                   ),
                   const SliverToBoxAdapter(
                     child: BikeCoverWidget(),
                   ),
+                  SliverToBoxAdapter(
+                    child: 20.verticalSpace ,
+                  ),
                   const SliverToBoxAdapter(
                     child: CategoryRow(),
+                  ),
+                  SliverToBoxAdapter(
+                    child: 20.verticalSpace ,
                   ),
                   const SliverPadding(
                     padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 100),
@@ -101,11 +111,11 @@ class _TaskViewState extends State<TaskView> {
                   return FlexibleBottomNavBar(
                     key: _navBarKey,
                     items: [
-                      NavBarItem(svgPath: 'assets/svg/bottom_1.svg', index: 0),
-                      NavBarItem(svgPath: 'assets/svg/bottom_2.svg', index: 1),
-                      NavBarItem(svgPath: 'assets/svg/bottom_3.svg', index: 2),
-                      NavBarItem(svgPath: 'assets/svg/bottom_4.svg', index: 3),
-                      NavBarItem(svgPath: 'assets/svg/bottom_5.svg', index: 4),
+                      NavBarItem(svgPath: 'assets/svg/bottom_1.svg', index: 0, label: 'Bikes'),
+                      NavBarItem(svgPath: 'assets/svg/bottom_2.svg', index: 1, label: 'Map'),
+                      NavBarItem(svgPath: 'assets/svg/bottom_3.svg', index: 2, label: 'Cart'),
+                      NavBarItem(svgPath: 'assets/svg/bottom_4.svg', index: 3, label: 'Profile'),
+                      NavBarItem(svgPath: 'assets/svg/bottom_5.svg', index: 4, label: 'Documents'),
                     ],
                     currentIndex: currentIndex,
                     onTap: (index) {

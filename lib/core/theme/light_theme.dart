@@ -74,7 +74,6 @@ class AppTheme {
         backgroundColor: backgroundColor,
         elevation: 0,
         centerTitle: true,
-        actionsPadding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 10.h),
         toolbarHeight:context.screenHeight *0.09,
         titleTextStyle: TextStyle(
           color: textColor,
@@ -89,8 +88,7 @@ class AppTheme {
         colorScheme: const ColorScheme.light(
           primary: primaryColor,
           secondary: secondaryColor,
-          background: backgroundColor,
-          surface: surfaceColor,
+          surface: backgroundColor,
         ),
         textTheme: textTheme,
         appBarTheme: appBarTheme(context),

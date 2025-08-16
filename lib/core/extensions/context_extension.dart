@@ -5,7 +5,7 @@ extension ContextExtension on BuildContext {
 
   TextTheme get textTheme => Theme.of(this).textTheme;
 
-  AppBarThemeData get appBarTheme => Theme.of(this).appBarTheme;
+  // AppBarTheme get appBarTheme => Theme.of(this).appBarTheme;
 
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 
@@ -16,5 +16,5 @@ extension ContextExtension on BuildContext {
   double get screenPaddingLeft => mediaQuery.padding.left;
   double get screenPaddingRight => mediaQuery.padding.right;
   EdgeInsets get screenPadding => mediaQuery.padding;
-  double get appBarHeight => appBarTheme.toolbarHeight ?? kToolbarHeight;
+  // double get appBarHeight => appBarTheme.toolbarHeight ?? kToolbarHeight;
 }

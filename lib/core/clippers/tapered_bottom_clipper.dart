@@ -5,15 +5,24 @@ class TaperedBottomClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     final path = Path();
     
+    // Start at bottom left
     path.moveTo(0, size.height);
     
-    path.lineTo(0, size.height * 0.25); // Adjust this value to control how low the left side starts
-    
-    // Diagonal line to top-right (higher end point)
-    path.lineTo(size.width, 0); // Top-right corner
-    
+    // Go to bottom right
     path.lineTo(size.width, size.height);
     
+    // Go to top right (higher point)
+    path.lineTo(size.width, size.height * 0.2);
+    
+    // Curve down to center (lower point)
+    path.quadraticBezierTo(
+      size.width * 0.5, 
+      size.height * 0.1, 
+      0, 
+      size.height * 0.2
+    );
+    
+    // Close the path
     path.close();
     
     return path;
