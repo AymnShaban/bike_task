@@ -4,7 +4,7 @@ A modern, responsive Flutter application for a bike shop featuring a beautiful U
 
 ## 📱 Demo
 
-[![Bike Shop App Demo](https://img.shields.io/badge/YouTube-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtube.com/watch?v=YOUR_VIDEO_ID)
+[![Bike Shop App Demo](https://img.shields.io/badge/YouTube-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/NJZcfJUfY9g)
 
 > **Watch the full demo on YouTube** - See the app in action with all its features and animations!
 
@@ -217,4 +217,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ⭐ **Star this repository if you found it helpful!**
 
-🔗 **Watch the demo video**: [YouTube Demo](https://youtube.com/watch?v=YOUR_VIDEO_ID)
+🔗 **Watch the demo video**: [YouTube Demo](https://youtu.be/NJZcfJUfY9g)
