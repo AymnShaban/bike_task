@@ -16,3 +16,4 @@ export 'package:get_it/get_it.dart';
 export 'package:bike_task/core/service_locator/service_locator.dart';
 export 'package:bike_task/core/widgets/grid_products.dart';
 export 'package:bike_task/view/blocs/favorite_bloc/favorite_bloc.dart';
+export 'package:bike_task/core/clippers/tapered_bottom_clipper.dart';
