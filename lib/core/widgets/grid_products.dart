@@ -1,3 +1,5 @@
+import 'package:bike_task/core/widgets/productCard.dart';
+
 import '../../exports.dart';
 
 class GridProducts extends StatelessWidget {
@@ -36,136 +38,7 @@ class GridProducts extends StatelessWidget {
   }
 }
 
-class ProductCard extends StatelessWidget {
-  final Product product;
 
-  const ProductCard({super.key, required this.product});
-
-  @override
-  Widget build(BuildContext context) {
-    return Transform.rotate(
-      angle: -0.09,
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              const Color(0xFF2C3344),
-              const Color(0xFF2C3546),
-              const Color(0xFF2F5B80),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: [0.0, 0.5, 1.0],
-            transform: GradientRotation(-0.2),
-          ),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(
-            color: AppTheme.backgroundColor.withValues(alpha: .5),
-            width: 1.5,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: .15),
-              blurRadius: 12,
-              offset: const Offset(0, 6),
-            ),
-          ],
-        ),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      BlocSelector<FavoriteBloc, Set<int>, bool>(
-                        selector: (state) => state.contains(product.id),
-                        builder: (context, isFavorite) {
-                          return GestureDetector(
-                            onTap: () {
-                              context.read<FavoriteBloc>().add(
-                                ToggleFavoriteEvent(product.id),
-                              );
-                            },
-                            child: ShaderMask(
-                              shaderCallback: (Rect bounds) {
-                                return isFavorite
-                                    ? AppTheme.primaryGradient.createShader(
-                                        bounds,
-                                      )
-                                    : LinearGradient(
-                                        colors: [
-                                          Colors.white.withValues(alpha: .7),
-                                          Colors.white.withValues(alpha: .7),
-                                        ],
-                                      ).createShader(bounds);
-                              },
-                              child: Icon(
-                                isFavorite
-                                    ? Icons.favorite_border
-                                    : Icons.favorite_border,
-                                color: Colors.white,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                  Expanded(
-                    child: Center(
-                      child: Image.asset(
-                        product.imageUrl,
-                        fit: BoxFit.fill,
-                       
-                      ),
-                    ),
-                  ),
-                  12.verticalSpace,
-                  Text(
-                    product.name,
-                    textScaler: TextScaler.linear(1),
-
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      color: Colors.white.withValues(alpha: .85),
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  4.verticalSpace,
-                  Text(
-                    product.name == "Road Bike"
-                        ? "PEUGEOT - LR01"
-                        : "SMITH - Trade",
-                    textScaler: TextScaler.linear(1),
-
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  4.verticalSpace,
-                  Text(
-                    '\$${product.price}',
-                    textScaler: TextScaler.linear(2),
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      color: Colors.white.withValues(alpha: .7),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 SliverGridDelegateWithFixedCrossAxisCount gridDelegate() {
   return SliverGridDelegateWithFixedCrossAxisCount(
@@ -189,3 +62,135 @@ class Product {
     required this.imageUrl,
   });
 }
+
+//
+// class ProductCard extends StatelessWidget {
+//   final Product product;
+//
+//   const ProductCard({super.key, required this.product});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Transform.rotate(
+//       angle: -0.09,
+//       child: Container(
+//         decoration: BoxDecoration(
+//           gradient: LinearGradient(
+//             colors: [
+//               const Color(0xFF2C3344),
+//               const Color(0xFF2C3546),
+//               const Color(0xFF2F5B80),
+//             ],
+//             begin: Alignment.topLeft,
+//             end: Alignment.bottomRight,
+//             stops: [0.0, 0.5, 1.0],
+//             transform: GradientRotation(-0.2),
+//           ),
+//           borderRadius: BorderRadius.circular(20),
+//           border: Border.all(
+//             color: AppTheme.backgroundColor.withValues(alpha: .5),
+//             width: 1.5,
+//           ),
+//           boxShadow: [
+//             BoxShadow(
+//               color: Colors.black.withValues(alpha: .15),
+//               blurRadius: 12,
+//               offset: const Offset(0, 6),
+//             ),
+//           ],
+//         ),
+//         child: Stack(
+//           children: [
+//             Padding(
+//               padding: const EdgeInsets.all(14.0),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Row(
+//                     mainAxisAlignment: MainAxisAlignment.end,
+//                     children: [
+//                       BlocSelector<FavoriteBloc, Set<int>, bool>(
+//                         selector: (state) => state.contains(product.id),
+//                         builder: (context, isFavorite) {
+//                           return GestureDetector(
+//                             onTap: () {
+//                               context.read<FavoriteBloc>().add(
+//                                 ToggleFavoriteEvent(product.id),
+//                               );
+//                             },
+//                             child: ShaderMask(
+//                               shaderCallback: (Rect bounds) {
+//                                 return isFavorite
+//                                     ? AppTheme.primaryGradient.createShader(
+//                                   bounds,
+//                                 )
+//                                     : LinearGradient(
+//                                   colors: [
+//                                     Colors.white.withValues(alpha: .7),
+//                                     Colors.white.withValues(alpha: .7),
+//                                   ],
+//                                 ).createShader(bounds);
+//                               },
+//                               child: Icon(
+//                                 isFavorite
+//                                     ? Icons.favorite_border
+//                                     : Icons.favorite_border,
+//                                 color: Colors.white,
+//                               ),
+//                             ),
+//                           );
+//                         },
+//                       ),
+//                     ],
+//                   ),
+//                   Expanded(
+//                     child: Center(
+//                       child: Image.asset(
+//                         product.imageUrl,
+//                         fit: BoxFit.fill,
+//
+//                       ),
+//                     ),
+//                   ),
+//                   12.verticalSpace,
+//                   Text(
+//                     product.name,
+//                     textScaler: TextScaler.linear(1),
+//
+//                     style: TextStyle(
+//                       fontSize: 15.sp,
+//                       color: Colors.white.withValues(alpha: .85),
+//                       fontWeight: FontWeight.w400,
+//                     ),
+//                   ),
+//                   4.verticalSpace,
+//                   Text(
+//                     product.name == "Road Bike"
+//                         ? "PEUGEOT - LR01"
+//                         : "SMITH - Trade",
+//                     textScaler: TextScaler.linear(1),
+//
+//                     style: TextStyle(
+//                       fontSize: 16.sp,
+//                       color: Colors.white,
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                   4.verticalSpace,
+//                   Text(
+//                     '\$${product.price}',
+//                     textScaler: TextScaler.linear(2),
+//                     style: TextStyle(
+//                       fontSize: 15.sp,
+//                       color: Colors.white.withValues(alpha: .7),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
